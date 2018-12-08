@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "restaurants#index"
+  root "restaurants#index" #網頁前台首頁
+  namespace :admin do #網頁後台首頁
+    root "restaurants#index" 
+  end
 end
