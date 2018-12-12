@@ -1,9 +1,11 @@
 class Admin::RestaurantsController < ApplicationController
   before_action :authenticate_admin
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  include Pagy::Backend
 
   def index
     @restaurants = Restaurant.all
+    @pagy, @restaurants = pagy(Restaurant.all, items: 20)
   end
 
   def new

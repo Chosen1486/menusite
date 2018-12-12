@@ -9,4 +9,7 @@
   </li>
   <% end %>
 </ul>
+
+<%= pagy_nav_compact_bootstrap(@pagy).html_safe %>
+
 <%= link_to 'New Restaurant', new_admin_restaurant_path %>
