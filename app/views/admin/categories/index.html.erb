@@ -14,7 +14,7 @@
     <%= f.submit class: "btn btn-primary" %>
   <% end %>
   </div>
-  
+
   <div class="row">
 
     <div class="col-md-12">
@@ -24,6 +24,7 @@
           <tr>
             <th>#</th>
             <th>餐廳分類</th>
+            <th>可執行動作</th>
           </tr>
         </thead>
         <tbody>
@@ -31,6 +32,7 @@
           <tr>
             <th scope="row"><%= category.id %></th>
             <td><%= category.name %></td>
+            <td><%= link_to 'Edit', admin_categories_path(id: category.id) %></td>
           </tr>
           <% end %>
         </tbody>
