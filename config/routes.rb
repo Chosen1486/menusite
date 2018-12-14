@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root "restaurants#index" #網頁前台首頁
   namespace :admin do #網頁後台路由
     resources :restaurants
+    resources :categories
     root "restaurants#index" 
   end
 end
