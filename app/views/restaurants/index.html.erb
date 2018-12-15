@@ -1,1 +1,9 @@
-<h1>網站前台</h1>
+<div class="content"> 
+  <% @restaurants.each do |restaurant| %>
+    <div>
+      <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
+      <p><%= restaurant.category.name %><p>
+    </div>
+  <% end %>
+  <%= pagy_nav_compact_bootstrap(@pagy).html_safe %>
+</div>
