@@ -1,14 +1,4 @@
-<div class="wrap">
-  <div class="search_section">
-
-  </div>
-  <div class="filter_bar">
-    <h3>依餐廳分類篩選</h3>
-    <%= @categories.each do |category| %>
-    <p><%= link_to category.name, category_path(category) %></p>
-    <% end %>
-  </div> 
-  <div class="content"> 
+<div class="content"> 
     <% @restaurants.each do |restaurant| %>
     <div class="display">
       <h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
@@ -18,4 +8,3 @@
     <% end %>
   <%= pagy_nav_compact_bootstrap(@pagy).html_safe %>
   </div>
-</div>

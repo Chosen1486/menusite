@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     root "restaurants#index" 
   end
 
+  resources :categories, only: :show
   resources :restaurants, only: [:index, :show]
   root "restaurants#index" #網頁前台首頁
   
