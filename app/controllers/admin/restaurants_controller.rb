@@ -48,7 +48,7 @@ class Admin::RestaurantsController < Admin::BaseController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :tel, :address, :description, :category_id)
+    params.require(:restaurant).permit(:name, :tel, :address, :description, :category_id, menu_uploads: [])
   end
 
   def set_restaurant

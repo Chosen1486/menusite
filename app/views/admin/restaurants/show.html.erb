@@ -3,6 +3,18 @@
 Tel: <%= @restaurant.tel %><br>
 Address: <%= @restaurant.address %><br>
 Description:<%= @restaurant.description %><br>
+</p>
+  <% if @restaurant.menu_uploads.attached? %>
+    <p> 
+    <h2>Menu</h2>
+    <% @restaurant.menu_uploads.each_with_index do |menu, i| %>
+    <p> 
+    <%= link_to("menu##{i}", rails_blob_path(menu, disposition: "attachment")) %>
+    <%= image_tag(menu) %>
+    </p>
+  <% end %>
+  </p>
+<% end %>
 
 <br>
 
