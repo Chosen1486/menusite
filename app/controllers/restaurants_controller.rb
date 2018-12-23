@@ -1,6 +1,8 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update]
-  before_action :admin_only, :except => [:index, :show] 
+  before_action :authorize_only, :except => [:index, :show] 
+  
+
   include Pagy::Backend
 
   def index
@@ -34,14 +36,8 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id]) 
   end
 
-  def admin_only
-    unless current_user.admin?
-      redirect_to restaurant_path(@restaurant), :alert => "Access denied."
-    end
-  end
-
-  def vip_only
-    unless current_user.vip?
+  def authorize_only
+    unless current_user.admin? || current_user.vip?
       redirect_to restaurant_path(@restaurant), :alert => "Access denied."
     end
   end
