@@ -17,5 +17,8 @@ Description:<%= @restaurant.description %><br>
 <% end %>
 
 <br>
+<% if current_user.role == "admin"||"vip" %>
+  <%= link_to 'Edit', edit_restaurant_path %> <br>
+<% end %>
 
-<%= link_to 'Back to index', restaurants_path %>
+<%= link_to '回到餐廳列表', restaurants_path %>

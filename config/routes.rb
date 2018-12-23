@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :categories, only: :show
-  resources :restaurants, only: [:index, :show]
+  resources :restaurants, only: [:index, :show, :edit, :update]
   root "restaurants#index" #網頁前台首頁
   
 end
