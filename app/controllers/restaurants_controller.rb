@@ -7,6 +7,9 @@ class RestaurantsController < ApplicationController
 
   def index
     @categories = Category.all
+    @restaurants = Restaurant.where(nil) # creates an anonymous scope
+    @restaurants = @restaurants.category(params[:category]) if params[:category].present?
+    @restaurants = @restaurants.district(params[:district]) if params[:district].present?
     @pagy, @restaurants = pagy(Restaurant.all, items: 20)
   end
 
