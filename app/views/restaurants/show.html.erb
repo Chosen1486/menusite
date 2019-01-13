@@ -32,6 +32,17 @@ Description:<%= @restaurant.description %><br>
   </div>
 </div>
 
+  <% @restaurant.comments.each do |comment| %>
+    <div>
+      <h4><%= comment.user.email.split("@")[0] %></h4>
+      <p><%= simple_format comment.content %></p>
+      <p class="text-muted">
+        <em><%= comment.created_at %> </em>
+      </p>
+    </div>
+    <hr>
+  <% end %>
+
 <% if current_user.vip? || current_user.admin? %>
    <%= link_to 'Edit', edit_restaurant_path %>
 <% end %>
