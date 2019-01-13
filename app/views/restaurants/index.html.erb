@@ -3,10 +3,16 @@
 
   </div>
   <div class="filter_bar">
-    <h3>依餐廳分類篩選</h3>
+    <h3>餐廳種類</h3>
     <% @categories.each do |category| %>
-      <p><%= link_to category.name, request.params.merge(category.id) %></p>
+      <p><%= link_to category.name, request.query_parameters.merge(category: category.id) %></p>
     <% end %>
+    <h3>餐廳地區</h3>
+    <% @districts.each do |district| %>
+      <p><%= link_to district, request.query_parameters.merge(district: district) %></p>
+    <% end %>
+  </br>
+  <h3><%= link_to "重新篩選", restaurants_path %></h3>
   </div> 
   <div class="content"> 
     <% @restaurants.each do |restaurant| %>
