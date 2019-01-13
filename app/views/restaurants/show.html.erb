@@ -18,6 +18,19 @@ Description:<%= @restaurant.description %><br>
 
 <br>
 
+<div class="container">
+  <div class="row">
+   <%= form_for [@restaurant, @comment] do |f| %>
+    <div class="form-group">
+      <%= f.text_area :content, placeholder: "留下評論", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit class: "btn btn-primary" %>
+      <%= f.button "Cancel", type: :reset, class: "btn btn-default" %>
+    </div>
+  <% end %>
+  </div>
+</div>
 
 <% if current_user.vip? || current_user.admin? %>
    <%= link_to 'Edit', edit_restaurant_path %>
