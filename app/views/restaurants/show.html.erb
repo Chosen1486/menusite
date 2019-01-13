@@ -38,6 +38,9 @@ Description:<%= @restaurant.description %><br>
       <p><%= simple_format comment.content %></p>
       <p class="text-muted">
         <em><%= comment.created_at %> </em>
+      <% if current_user.admin? %>
+        <%= link_to "Delete", restaurant_comment_path(@restaurant, comment), method: :delete %>
+      <% end %>
       </p>
     </div>
     <hr>
